@@ -1,6 +1,6 @@
 
 /*
- * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
+ * *** Fiore Cassettari 002 ***
  *
  * This java file is a Java object implementing simple AVL Tree.
  * You are to complete the deleteElement method.
@@ -341,28 +341,24 @@ class LUC_AVLTree {
      *  @return node - new top of subtree, it possibly changed due to a rotation
      */
 
+    /*
+    Deletion – locate node by recursively traversing left or right child until find (or reach leaf).
+    a. Copy contents of next larger node to the deleted node. Remove that copied node.
+    b. Note: next larger node is found using the right child and traversing to the left-most leaf
+     */
+
     private Node deleteElement(int value, Node node) {
+        //I know this does nothing but it at least searches the tree
+        if (node == null) {
+            return null;
+        }
 
-        /*
-         * ADD CODE HERE
-         * 
-         * NOTE, that you should use the existing coded private methods
-         * in this file, which include:
-         *      - minValueNode,
-         *      - getMaxHeight,
-         *      - getHeight,
-         *      - getBalanceFactor,
-         *      - LLRotation
-         *      - RRRotation,
-         *      - LRRotation,
-         *      - RLRotation.
-         *
-         * To understand what each of these methods do, see the method prologues and
-         * code for each. You can also look at the method InsertElement, as it has do
-         * do many of the same things as this method.
-         */
 
-        return node;
+        if (node.value > value) { node.leftChild = deleteElement(value, node.leftChild); }
+        else if  (node.value < value) { node.rightChild = deleteElement(value, node.rightChild); }
+
+
+        return null;
     }
 
 
